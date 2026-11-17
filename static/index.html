@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipper AI Studio - 9:16 Viral Reels & Shorts Repurposing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              900: '#4c1d95',
+            },
+            surface: {
+              darkest: '#090b10',
+              darker: '#0f131c',
+              dark: '#161c2b',
+              card: '#1c2336',
+              border: '#2a344d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #090b10;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .gradient-border {
+      position: relative;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(56, 189, 248, 0.2));
+      padding: 1px;
+    }
+    .gradient-border-inner {
+      background: #111624;
+      border-radius: calc(1rem - 1px);
+    }
+    .glow-btn {
+      box-shadow: 0 0 25px -5px rgba(124, 58, 237, 0.6);
+      transition: all 0.2s ease;
+    }
+    .glow-btn:hover {
+      box-shadow: 0 0 35px -2px rgba(124, 58, 237, 0.85);
+      transform: translateY(-1px);
+    }
+    /* Centered typography - strictly NO background box */
+    .clean-text-overlay {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 1px rgba(0, 0, 0, 0.9);
+      letter-spacing: 0.015em;
+      line-height: 1.35;
+      max-width: 86%;
+      text-align: center;
+      word-break: break-word;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f131c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a344d;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8b5cf6;
+    }
+  </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col bg-surface-darkest selection:bg-brand-500 selection:text-white">
+
+  <!-- Navbar -->
+  <header class="border-b border-surface-border bg-surface-darker/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-sky-400 flex items-center justify-center text-white shadow-lg shadow-brand-500/25">
+          <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-brand-100 bg-clip-text text-transparent">Clipper AI Studio</span>
+          <span class="text-xs px-2 py-0.5 ml-2 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30 font-medium">Rule-Guided AI</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-card border border-surface-border text-xs text-slate-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Rules & Guidelines Engine</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-card border border-surface-border text-xs text-slate-300">
+          <i class="fa-solid fa-mobile-screen text-sky-400"></i>
+          <span>9:16 Full-Screen Fill</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-8">
+
+    <!-- Upload & Setup Grid -->
+    <div id="setup-section" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Video Upload Card (Left) -->
+      <div class="lg:col-span-7 flex flex-col gap-4">
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 h-full flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                  <i class="fa-solid fa-video text-brand-500"></i>
+                  Input Video
+                </h2>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-semibold flex items-center gap-1">
+                  <i class="fa-solid fa-crop-simple"></i> Auto 9:16 Reel Fit
+                </span>
+              </div>
+
+              <!-- Drag and drop zone -->
+              <div id="drop-zone" class="relative border-2 border-dashed border-surface-border hover:border-brand-500/70 transition-colors rounded-xl p-8 flex flex-col items-center justify-center gap-4 bg-surface-card/40 cursor-pointer min-h-[280px] group">
+                <input type="file" id="video-file-input" accept="video/mp4,video/quicktime,video/x-matroska,video/webm" class="hidden">
+                
+                <div class="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 text-2xl group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <div class="text-center">
+                  <p class="font-semibold text-slate-200 text-base">Drag & drop your long video here</p>
+                  <p class="text-xs text-slate-400 mt-1">or <span class="text-brand-400 underline font-medium">browse from your computer</span></p>
+                </div>
+
+                <div class="flex items-center gap-2 text-[11px] text-slate-500">
+                  <span class="px-2 py-0.5 rounded bg-surface-darker">MP4</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-darker">MOV</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-darker">MKV</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-darker">WEBM</span>
+                </div>
+              </div>
+
+              <!-- Selected Video Preview Card -->
+              <div id="video-preview-card" class="hidden mt-4 p-4 rounded-xl bg-surface-card border border-surface-border flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3 overflow-hidden">
+                    <div class="w-10 h-10 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0">
+                      <i class="fa-solid fa-film"></i>
+                    </div>
+                    <div class="truncate">
+                      <p id="preview-filename" class="font-medium text-sm text-slate-200 truncate">video.mp4</p>
+                      <p id="preview-filesize" class="text-xs text-slate-400">0 MB</p>
+                    </div>
+                  </div>
+                  <button id="btn-remove-video" class="text-slate-400 hover:text-rose-400 p-2 text-sm transition-colors" title="Remove video">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+
+                <!-- Video Preview -->
+                <div class="relative w-full rounded-lg bg-black/80 overflow-hidden flex items-center justify-center border border-surface-border/60">
+                  <video id="source-video-player" controls class="w-full max-h-80 object-contain"></video>
+                </div>
+
+                <div class="flex items-center justify-between text-[11px] text-slate-400 px-1">
+                  <span class="flex items-center gap-1.5"><i class="fa-solid fa-check-circle text-emerald-400"></i> Video loaded</span>
+                  <span>Exports in vertical 9:16 format with typewriter audio</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upload Info Badge -->
+            <div class="mt-4 pt-4 border-t border-surface-border/60 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-emerald-400"></i> 100% Private on Your PC</span>
+              <span>Rule-Guided Reels &bull; 9:16 Full Screen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings & Rules Panel (Right) -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        <div class="p-6 rounded-2xl bg-surface-card border border-surface-border flex flex-col justify-between h-full">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-scroll text-brand-400"></i>
+                Rules & Information
+              </h2>
+              <span class="px-2.5 py-0.5 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+                Rule-Guided AI
+              </span>
+            </div>
+
+            <!-- AI Intelligence Engine Selector -->
+            <div class="p-3.5 rounded-xl bg-surface-dark border border-surface-border flex flex-col gap-3">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-brand-600 to-sky-400 flex items-center justify-center text-white text-xs">
+                    <i class="fa-solid fa-brain"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-white">AI Intelligence Engine</p>
+                    <p class="text-[10px] text-slate-400">Frontier Cloud or 100% Free Local</p>
+                  </div>
+                </div>
+                <select id="model-select" class="bg-surface-darker border border-surface-border text-brand-300 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-brand-500 font-semibold cursor-pointer max-w-[210px] truncate">
+                  <option value="gemini-2.5-flash" selected>🌟 Gemini 2.5 Flash (Superhuman)</option>
+                  <option value="gemini-1.5-pro">🌟 Gemini 1.5 Pro (Deep 2M)</option>
+                  <option value="gpt-4o">🌟 OpenAI GPT-4o (Frontier)</option>
+                  <option value="deepseek-r1:8b">🧠 DeepSeek-R1 8B (Local Reasoning)</option>
+                  <option value="qwen2.5:7b">⚡ Qwen 2.5 7B (Local Fast)</option>
+                  <option value="llama3.1">⚡ Llama 3.1 8B (Local)</option>
+                </select>
+              </div>
+
+              <!-- API Key Field (Dynamically shown for Cloud models) -->
+              <div id="api-key-container" class="pt-2 border-t border-surface-border/60 flex flex-col gap-1.5">
+                <div class="flex items-center justify-between text-[11px]">
+                  <label for="api-key-input" id="api-key-label" class="font-semibold text-slate-200 flex items-center gap-1.5">
+                    <i class="fa-solid fa-key text-amber-400"></i>
+                    <span id="api-key-title">Google Gemini API Key</span>
+                  </label>
+                  <a id="api-key-link" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="text-[10px] text-sky-400 hover:text-sky-300 underline font-medium flex items-center gap-1">
+                    <span>Get Free Key</span> <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </a>
+                </div>
+                <div class="relative">
+                  <input 
+                    type="password" 
+                    id="api-key-input" 
+                    placeholder="Enter API key (stored securely in browser)" 
+                    class="w-full bg-surface-darker border border-surface-border focus:border-brand-500 rounded-lg pl-3 pr-8 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none transition-colors mono"
+                  />
+                  <button type="button" id="btn-toggle-key-visibility" class="absolute right-2.5 top-2 text-slate-400 hover:text-white text-xs">
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+                <p id="api-key-helper" class="text-[10px] text-slate-400 leading-tight">
+                  ✨ <strong>Google Gemini</strong> provides world-leading multimodal video/audio analysis & reasoning. Or switch to <strong>DeepSeek-R1</strong> for free local processing.
+                </p>
+              </div>
+            </div>
+
+            <!-- Rules & Information Textarea -->
+            <div class="p-4 rounded-xl bg-surface-dark border border-surface-border flex flex-col gap-2.5">
+              <div class="flex items-center justify-between">
+                <label for="user-rules-input" class="text-xs font-bold text-white flex items-center gap-1.5">
+                  <i class="fa-solid fa-clipboard-list text-sky-400"></i>
+                  Rules, Guidelines & Instructions for Clips
+                </label>
+                <span class="text-[10px] text-slate-400">Direct AI Directives</span>
+              </div>
+              <textarea 
+                id="user-rules-input" 
+                rows="8" 
+                placeholder="Enter your rules and information for the clips. For example:&#10;&#10;• Make 10 clips around 15-20 seconds each&#10;• Focus on high-energy, exciting, or funny moments&#10;• Hook text for clip 1: 'Wait for the ending...'&#10;• Add engaging captions with 3-4 viral hashtags&#10;• Cut out awkward pauses and repetitive talking"
+                class="w-full bg-surface-darker border border-surface-border focus:border-brand-500 rounded-xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none transition-colors resize-none leading-relaxed"
+              ></textarea>
+              <div class="flex items-start gap-2 p-2.5 rounded-lg bg-brand-500/10 border border-brand-500/20 text-[11px] text-slate-300">
+                <i class="fa-solid fa-wand-magic-sparkles text-brand-400 mt-0.5 shrink-0"></i>
+                <p>The AI strictly executes all important information, hooks, durations, and criteria in your rules, while automatically filtering out unnecessary noise.</p>
+              </div>
+            </div>
+
+            <!-- Features Summary Card -->
+            <div class="p-3 rounded-xl bg-surface-dark/70 border border-surface-border/60 flex flex-col gap-1.5 text-xs text-slate-300">
+              <div class="flex items-center gap-2 text-brand-300 font-semibold text-[11px]">
+                <i class="fa-solid fa-circle-check text-emerald-400"></i> What will be generated:
+              </div>
+              <ul class="text-[11px] text-slate-400 space-y-1 list-disc list-inside">
+                <li>10 standalone reels strictly extracted according to your rules</li>
+                <li>Zero duplicate clips guaranteed (Non-Maximum Suppression)</li>
+                <li>9:16 vertical full-screen fill (edge-to-edge, zero black voids)</li>
+                <li>Centered typewriter hook text with subtle mechanical click audio</li>
+                <li>100% original video audio preserved at full volume</li>
+                <li>Complete upload strategy with titles, captions & instructions</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Launch Button -->
+          <div class="mt-4 pt-4 border-t border-surface-border">
+            <button id="btn-start-clipping" disabled class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-600 via-brand-500 to-sky-500 text-white font-bold text-sm flex items-center justify-center gap-3 glow-btn disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none transition-all">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>Generate Reels from Rules & Information</span>
+            </button>
+            <p id="btn-helper-text" class="text-center text-[10px] text-slate-500 mt-1.5">Upload a video to enable clipping</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Progress Section (Hidden initially) -->
+    <div id="progress-section" class="hidden">
+      <div class="p-6 rounded-2xl bg-surface-card border border-surface-border flex flex-col gap-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center animate-spin">
+              <i class="fa-solid fa-arrows-rotate text-lg"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Processing Reels with AI & Rules (9:16)</h3>
+              <p id="progress-step-text" class="text-xs text-slate-400">Initializing pipeline...</p>
+            </div>
+          </div>
+          <span id="progress-percentage" class="text-xl font-extrabold text-brand-400 mono">0%</span>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-surface-darker h-3 rounded-full overflow-hidden p-0.5 border border-surface-border">
+          <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-brand-600 via-purple-500 to-sky-400 rounded-full transition-all duration-500" style="width: 5%;"></div>
+        </div>
+
+        <!-- Stepper Visualizer -->
+        <div class="grid grid-cols-3 gap-4 pt-2">
+          <div id="step-1-card" class="p-3 rounded-xl bg-brand-500/10 border-2 border-brand-500 flex items-center gap-3 shadow-lg shadow-brand-500/20 transition-all duration-300">
+            <span id="step-1-badge" class="w-7 h-7 rounded-lg bg-brand-500 text-white text-xs font-extrabold flex items-center justify-center shrink-0 shadow-md shadow-brand-500/50 scale-105">1</span>
+            <div class="truncate">
+              <p class="text-xs font-semibold text-slate-200">Audio Transcription</p>
+              <p class="text-[10px] text-slate-400">Whisper Base</p>
+            </div>
+          </div>
+          <div id="step-2-card" class="p-3 rounded-xl bg-surface-dark border border-surface-border flex items-center gap-3 opacity-40 transition-all duration-300">
+            <span id="step-2-badge" class="w-7 h-7 rounded-lg bg-surface-card text-slate-400 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+            <div class="truncate">
+              <p class="text-xs font-semibold text-slate-200">Rules & AI Slicing</p>
+              <p id="step-2-model-label" class="text-[10px] text-slate-400">Qwen 2.5 7B</p>
+            </div>
+          </div>
+          <div id="step-3-card" class="p-3 rounded-xl bg-surface-dark border border-surface-border flex items-center gap-3 opacity-40 transition-all duration-300">
+            <span id="step-3-badge" class="w-7 h-7 rounded-lg bg-surface-card text-slate-400 text-xs font-bold flex items-center justify-center shrink-0">3</span>
+            <div class="truncate">
+              <p class="text-xs font-semibold text-slate-200">9:16 & Typewriter</p>
+              <p class="text-[10px] text-slate-400">MoviePy Render</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section (Hidden initially) -->
+    <div id="results-section" class="hidden flex flex-col gap-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-surface-border">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Complete
+            </span>
+            <h2 class="text-2xl font-bold text-white">Your Generated 9:16 Video Reels</h2>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">Generated strictly according to your rules and information with 9:16 full-screen fill & original audio.</p>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <a id="btn-download-guide" href="#" download="upload_playbook.txt" class="hidden px-3.5 py-2 rounded-xl bg-surface-card hover:bg-surface-border border border-surface-border text-xs font-bold text-slate-200 flex items-center gap-2 transition-colors">
+            <i class="fa-solid fa-file-lines text-sky-400"></i>
+            <span>Download Upload Playbook (.txt)</span>
+          </a>
+          <button id="btn-new-video" class="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-xs font-bold text-white flex items-center gap-2 transition-colors">
+            <i class="fa-solid fa-plus"></i>
+            <span>New Video</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Vertical 9:16 Reels Grid (Preview & Download Only) -->
+      <div id="clips-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+        <!-- 10 Clip Cards injected here -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 rounded-xl bg-surface-card border border-surface-border text-white text-xs font-medium flex items-center gap-2 shadow-2xl shadow-black/80">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+    <span id="toast-message">Notification message</span>
+  </div>
+
+  <script>
+    // State
+    let currentJobId = null;
+    let selectedFile = null;
+    let eventSource = null;
+    let isJobCompleted = false;
+    let pollInterval = null;
+
+    // Elements
+    const dropZone = document.getElementById("drop-zone");
+    const fileInput = document.getElementById("video-file-input");
+    const previewCard = document.getElementById("video-preview-card");
+    const previewFilename = document.getElementById("preview-filename");
+    const previewFilesize = document.getElementById("preview-filesize");
+    const previewVideo = document.getElementById("source-video-player");
+    const btnRemoveVideo = document.getElementById("btn-remove-video");
+    const btnStart = document.getElementById("btn-start-clipping");
+    const btnHelperText = document.getElementById("btn-helper-text");
+
+    // Fixed Variable Controls
+    const clipDurationSlider = document.getElementById("clip-duration-slider");
+    const durationDisplayBadge = document.getElementById("duration-display-badge");
+
+    const setupSection = document.getElementById("setup-section");
+    const progressSection = document.getElementById("progress-section");
+    const resultsSection = document.getElementById("results-section");
+
+    const progressBarFill = document.getElementById("progress-bar-fill");
+    const progressPercentage = document.getElementById("progress-percentage");
+    const progressStepText = document.getElementById("progress-step-text");
+
+    const step1Card = document.getElementById("step-1-card");
+    const step2Card = document.getElementById("step-2-card");
+    const step3Card = document.getElementById("step-3-card");
+    const step1Badge = document.getElementById("step-1-badge");
+    const step2Badge = document.getElementById("step-2-badge");
+    const step3Badge = document.getElementById("step-3-badge");
+
+    const userRulesInput = document.getElementById("user-rules-input");
+    const modelSelect = document.getElementById("model-select");
+    const step2ModelLabel = document.getElementById("step-2-model-label");
+    const apiKeyContainer = document.getElementById("api-key-container");
+    const apiKeyInput = document.getElementById("api-key-input");
+    const apiKeyTitle = document.getElementById("api-key-title");
+    const apiKeyLink = document.getElementById("api-key-link");
+    const apiKeyHelper = document.getElementById("api-key-helper");
+    const btnToggleKeyVisibility = document.getElementById("btn-toggle-key-visibility");
+    const btnDownloadGuide = document.getElementById("btn-download-guide");
+    const clipsGrid = document.getElementById("clips-grid");
+    const btnNewVideo = document.getElementById("btn-new-video");
+
+    // Load saved API keys from localStorage
+    function getStoredKey(provider) {
+      try {
+        return localStorage.getItem(`clipper_${provider}_key`) || "";
+      } catch (e) {
+        return "";
+      }
+    }
+    function setStoredKey(provider, val) {
+      try {
+        if (val) localStorage.setItem(`clipper_${provider}_key`, val.trim());
+      } catch (e) {}
+    }
+
+    function updateApiKeyUI() {
+      if (!modelSelect) return;
+      const selected = modelSelect.value || "";
+      if (selected.startsWith("gemini")) {
+        apiKeyContainer.classList.remove("hidden");
+        apiKeyTitle.textContent = "Google Gemini API Key";
+        apiKeyLink.href = "https://aistudio.google.com/app/apikey";
+        apiKeyLink.classList.remove("hidden");
+        apiKeyInput.placeholder = "Paste Gemini API key (AIzaSy...)";
+        apiKeyInput.value = getStoredKey("gemini");
+        apiKeyHelper.innerHTML = "✨ <strong>Google Gemini 2.5 Flash</strong> provides superhuman multimodal video & audio accuracy with a 1M context window. Free API key available at Google AI Studio.";
+      } else if (selected.startsWith("gpt") || selected.startsWith("o1") || selected.startsWith("o3")) {
+        apiKeyContainer.classList.remove("hidden");
+        apiKeyTitle.textContent = "OpenAI API Key";
+        apiKeyLink.href = "https://platform.openai.com/api-keys";
+        apiKeyLink.classList.remove("hidden");
+        apiKeyInput.placeholder = "Paste OpenAI API key (sk-...)";
+        apiKeyInput.value = getStoredKey("openai");
+        apiKeyHelper.innerHTML = "✨ <strong>OpenAI GPT-4o</strong> delivers frontier intelligence and high-retention social captions.";
+      } else {
+        // Local model (DeepSeek-R1, Qwen 2.5, Llama 3.1)
+        apiKeyContainer.classList.add("hidden");
+      }
+    }
+
+    if (btnToggleKeyVisibility && apiKeyInput) {
+      btnToggleKeyVisibility.addEventListener("click", () => {
+        if (apiKeyInput.type === "password") {
+          apiKeyInput.type = "text";
+          btnToggleKeyVisibility.querySelector("i").className = "fa-regular fa-eye-slash";
+        } else {
+          apiKeyInput.type = "password";
+          btnToggleKeyVisibility.querySelector("i").className = "fa-regular fa-eye";
+        }
+      });
+    }
+
+    if (apiKeyInput) {
+      apiKeyInput.addEventListener("input", () => {
+        const selected = modelSelect ? modelSelect.value : "";
+        if (selected.startsWith("gemini")) {
+          setStoredKey("gemini", apiKeyInput.value);
+        } else if (selected.startsWith("gpt")) {
+          setStoredKey("openai", apiKeyInput.value);
+        }
+      });
+    }
+
+    async function loadSystemStatus() {
+      try {
+        const res = await fetch("/api/system/status");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.recommended_model && modelSelect) {
+            for (let i = 0; i < modelSelect.options.length; i++) {
+              if (modelSelect.options[i].value === data.recommended_model) {
+                modelSelect.selectedIndex = i;
+                break;
+              }
+            }
+          }
+        }
+      } catch (e) {}
+      updateApiKeyUI();
+      if (step2ModelLabel && modelSelect && modelSelect.selectedIndex >= 0) {
+        step2ModelLabel.textContent = modelSelect.options[modelSelect.selectedIndex].text.split("(")[0].replace(/[^a-zA-Z0-9\.\-\s]/g, '').trim();
+      }
+    }
+    loadSystemStatus();
+
+    if (modelSelect) {
+      modelSelect.addEventListener("change", () => {
+        updateApiKeyUI();
+        if (step2ModelLabel && modelSelect.selectedIndex >= 0) {
+          step2ModelLabel.textContent = modelSelect.options[modelSelect.selectedIndex].text.split("(")[0].replace(/[^a-zA-Z0-9\.\-\s]/g, '').trim();
+        }
+      });
+    }
+
+    function showToast(msg, icon = "fa-circle-check", isError = false) {
+      const toast = document.getElementById("toast");
+      const msgEl = document.getElementById("toast-message");
+      msgEl.textContent = msg;
+      toast.querySelector("i").className = `fa-solid ${icon} ${isError ? 'text-rose-400' : 'text-emerald-400'} text-sm`;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      setTimeout(() => {
+        toast.classList.add("translate-y-20", "opacity-0");
+      }, 3000);
+    }
+
+    // File Drag & Drop
+    dropZone.addEventListener("click", () => fileInput.click());
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("border-brand-500", "bg-brand-500/10");
+    });
+    dropZone.addEventListener("dragleave", () => {
+      dropZone.classList.remove("border-brand-500", "bg-brand-500/10");
+    });
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropZone.classList.remove("border-brand-500", "bg-brand-500/10");
+      if (e.dataTransfer.files.length > 0) {
+        handleFileSelect(e.dataTransfer.files[0]);
+      }
+    });
+    fileInput.addEventListener("change", (e) => {
+      if (e.target.files.length > 0) {
+        handleFileSelect(e.target.files[0]);
+      }
+    });
+
+    function handleFileSelect(file) {
+      if (!file.type.startsWith("video/") && !file.name.match(/\.(mp4|mov|mkv|webm|avi)$/i)) {
+        showToast("Please select a valid video file (MP4, MOV, MKV, WEBM).", "fa-triangle-exclamation", true);
+        return;
+      }
+      selectedFile = file;
+      previewFilename.textContent = file.name;
+      previewFilesize.textContent = (file.size / (1024 * 1024)).toFixed(1) + " MB";
+      previewCard.classList.remove("hidden");
+      dropZone.classList.add("hidden");
+
+      const objUrl = URL.createObjectURL(file);
+      previewVideo.src = objUrl;
+
+      btnStart.removeAttribute("disabled");
+      btnHelperText.textContent = "Ready to generate reels from your rules & guidelines!";
+    }
+
+    btnRemoveVideo.addEventListener("click", () => {
+      selectedFile = null;
+      fileInput.value = "";
+      previewVideo.pause();
+      previewVideo.src = "";
+      previewCard.classList.add("hidden");
+      dropZone.classList.remove("hidden");
+      btnStart.setAttribute("disabled", "true");
+      btnHelperText.textContent = "Upload a video to enable clipping";
+    });
+
+    // Stepper State Visualizer: Active Purple moves, completed steps get Gray Tint
+    function updateStepper(activeStep) {
+      const activeCard = "p-3 rounded-xl bg-brand-500/10 border-2 border-brand-500 flex items-center gap-3 shadow-lg shadow-brand-500/20 transition-all duration-300";
+      const activeBadge = "w-7 h-7 rounded-lg bg-brand-500 text-white text-xs font-extrabold flex items-center justify-center shrink-0 shadow-md shadow-brand-500/50 scale-105";
+
+      const completedCard = "p-3 rounded-xl bg-slate-900/90 border border-slate-700/60 opacity-60 grayscale flex items-center gap-3 transition-all duration-300";
+      const completedBadge = "w-7 h-7 rounded-lg bg-slate-700 text-slate-300 text-xs font-bold flex items-center justify-center shrink-0";
+
+      const waitingCard = "p-3 rounded-xl bg-surface-dark border border-surface-border flex items-center gap-3 opacity-40 transition-all duration-300";
+      const waitingBadge = "w-7 h-7 rounded-lg bg-surface-card text-slate-400 text-xs font-bold flex items-center justify-center shrink-0";
+
+      if (activeStep === 1) {
+        step1Card.className = activeCard;
+        step1Badge.className = activeBadge;
+
+        step2Card.className = waitingCard;
+        step2Badge.className = waitingBadge;
+
+        step3Card.className = waitingCard;
+        step3Badge.className = waitingBadge;
+      } else if (activeStep === 2) {
+        // Step 1 completed -> gray tint rectangle
+        step1Card.className = completedCard;
+        step1Badge.className = completedBadge;
+
+        // Step 2 active -> purple lights up number 2
+        step2Card.className = activeCard;
+        step2Badge.className = activeBadge;
+
+        step3Card.className = waitingCard;
+        step3Badge.className = waitingBadge;
+      } else if (activeStep === 3) {
+        // Steps 1 & 2 completed -> gray tint rectangle
+        step1Card.className = completedCard;
+        step1Badge.className = completedBadge;
+
+        step2Card.className = completedCard;
+        step2Badge.className = completedBadge;
+
+        // Step 3 active -> purple lights up number 3
+        step3Card.className = activeCard;
+        step3Badge.className = activeBadge;
+      } else if (activeStep >= 4) {
+        // All completed -> gray tint
+        step1Card.className = completedCard;
+        step1Badge.className = completedBadge;
+
+        step2Card.className = completedCard;
+        step2Badge.className = completedBadge;
+
+        step3Card.className = completedCard;
+        step3Badge.className = completedBadge;
+      }
+    }
+
+    // Smooth Continuous Adaptive Progress Engine (Never Stuck)
+    let visualProgress = 5;
+    let targetProgress = 15;
+    let progressTimer = null;
+
+    function startProgressEngine() {
+      if (progressTimer) clearInterval(progressTimer);
+      visualProgress = 5;
+      targetProgress = 22;
+      if (modelSelect && step2ModelLabel && modelSelect.selectedIndex >= 0) {
+        step2ModelLabel.textContent = modelSelect.options[modelSelect.selectedIndex].text.split("(")[0].trim();
+      }
+      progressStepText.textContent = "Extracting audio & transcribing with Whisper Base...";
+      updateStepper(1);
+
+      progressTimer = setInterval(() => {
+        // Fast in the starting, gently decelerating near the end
+        if (visualProgress < targetProgress) {
+          const diff = targetProgress - visualProgress;
+          const step = Math.max(0.18, diff * 0.12);
+          visualProgress = Math.min(targetProgress, visualProgress + step);
+        } else if (visualProgress < 97.5) {
+          // Continuous smooth creeping forward: NEVER freezes or gets stuck at any static number
+          let creep = 0.22; // 0-35%
+          if (visualProgress > 35) creep = 0.12;  // 35-60%
+          if (visualProgress > 60) creep = 0.055; // 60-80%
+          if (visualProgress > 80) creep = 0.025; // 80-90%
+          if (visualProgress > 90) creep = 0.01;  // 90-97.5% (gentle asymptotic crawl)
+
+          visualProgress = Math.min(97.5, visualProgress + creep);
+        }
+
+        const disp = Math.min(99, Math.floor(visualProgress));
+        progressBarFill.style.width = `${visualProgress}%`;
+        progressPercentage.textContent = `${disp}%`;
+
+        // Update visual stepper cards
+        if (visualProgress < 50) {
+          updateStepper(1);
+        } else if (visualProgress < 68) {
+          updateStepper(2);
+        } else {
+          updateStepper(3);
+        }
+      }, 100);
+    }
+
+    function setProgressTarget(pct, msg) {
+      if (pct > targetProgress) {
+        targetProgress = pct;
+      }
+      if (msg) {
+        progressStepText.textContent = msg;
+      }
+    }
+
+    function completeProgressEngine() {
+      if (progressTimer) {
+        clearInterval(progressTimer);
+        progressTimer = null;
+      }
+      visualProgress = 100;
+      progressBarFill.style.width = "100%";
+      progressPercentage.textContent = "100%";
+      progressStepText.textContent = "Complete! Your vertical reels are ready.";
+      updateStepper(4);
+    }
+
+    function stopProgressEngineError() {
+      if (progressTimer) {
+        clearInterval(progressTimer);
+        progressTimer = null;
+      }
+    }
+
+    // Start Clipping Pipeline
+    btnStart.addEventListener("click", async () => {
+      if (!selectedFile) return;
+
+      // Reset state & ensure no prior polling loops run
+      isJobCompleted = false;
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
+      if (eventSource) {
+        eventSource.close();
+        eventSource = null;
+      }
+
+      const selectedModel = modelSelect ? modelSelect.value : "deepseek-r1:8b";
+      const isCloudModel = selectedModel.startsWith("gemini") || selectedModel.startsWith("gpt");
+      const keyVal = apiKeyInput ? apiKeyInput.value.trim() : "";
+
+      if (isCloudModel && !keyVal) {
+        const provName = selectedModel.startsWith("gemini") ? "Google Gemini" : "OpenAI";
+        showToast(`Please enter your ${provName} API Key or switch to DeepSeek-R1 (Local Free).`, "fa-key", true);
+        if (apiKeyInput) apiKeyInput.focus();
+        return;
+      }
+
+      btnStart.setAttribute("disabled", "true");
+      setupSection.classList.add("opacity-50", "pointer-events-none");
+      progressSection.classList.remove("hidden");
+      progressSection.scrollIntoView({ behavior: "smooth" });
+
+      startProgressEngine();
+
+      try {
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+
+        const uploadRes = await fetch("/api/upload", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!uploadRes.ok) {
+          throw new Error("Failed to upload video.");
+        }
+
+        const uploadData = await uploadRes.json();
+        currentJobId = uploadData.job_id;
+
+        const startFormData = new FormData();
+        startFormData.append("user_rules", userRulesInput ? userRulesInput.value.trim() : "");
+        startFormData.append("ollama_model", selectedModel);
+        startFormData.append("whisper_model", "base");
+        if (keyVal) {
+          startFormData.append("api_key", keyVal);
+        }
+
+        await fetch(`/api/start/${currentJobId}`, {
+          method: "POST",
+          body: startFormData
+        });
+
+        listenToJobEvents(currentJobId);
+
+      } catch (err) {
+        stopProgressEngineError();
+        showToast(err.message, "fa-triangle-exclamation", true);
+        setupSection.classList.remove("opacity-50", "pointer-events-none");
+        progressSection.classList.add("hidden");
+        btnStart.removeAttribute("disabled");
+      }
+    });
+
+    function listenToJobEvents(jobId) {
+      if (eventSource) eventSource.close();
+
+      eventSource = new EventSource(`/api/jobs/${jobId}/events`);
+
+      eventSource.addEventListener("update", (e) => {
+        if (isJobCompleted) return;
+        const data = JSON.parse(e.data);
+        setProgressTarget(data.progress, data.message);
+      });
+
+      eventSource.addEventListener("done", (e) => {
+        const data = JSON.parse(e.data);
+        if (eventSource) {
+          eventSource.close();
+          eventSource = null;
+        }
+
+        if (data.status === "completed") {
+          if (isJobCompleted) return;
+          isJobCompleted = true;
+          if (pollInterval) {
+            clearInterval(pollInterval);
+            pollInterval = null;
+          }
+
+          completeProgressEngine();
+
+          if (data.upload_guide_url && btnDownloadGuide) {
+            btnDownloadGuide.href = data.upload_guide_url;
+            btnDownloadGuide.classList.remove("hidden");
+          }
+
+          setTimeout(() => {
+            progressSection.classList.add("hidden");
+            setupSection.classList.add("hidden");
+            renderClips(data.clips);
+            resultsSection.classList.remove("hidden");
+            resultsSection.scrollIntoView({ behavior: "smooth" });
+          }, 600);
+        } else {
+          stopProgressEngineError();
+          showToast(data.error || "Processing failed.", "fa-triangle-exclamation", true);
+          setupSection.classList.remove("opacity-50", "pointer-events-none");
+          btnStart.removeAttribute("disabled");
+        }
+      });
+
+      eventSource.onerror = () => {
+        if (isJobCompleted) return;
+        if (eventSource) {
+          eventSource.close();
+          eventSource = null;
+        }
+        pollJobStatus(jobId);
+      };
+    }
+
+    function pollJobStatus(jobId) {
+      if (isJobCompleted) return;
+      if (pollInterval) clearInterval(pollInterval);
+
+      pollInterval = setInterval(async () => {
+        if (isJobCompleted) {
+          clearInterval(pollInterval);
+          pollInterval = null;
+          return;
+        }
+
+        try {
+          const res = await fetch(`/api/jobs/${jobId}`);
+          const data = await res.json();
+          setProgressTarget(data.progress, data.message);
+
+          if (data.status === "completed") {
+            clearInterval(pollInterval);
+            pollInterval = null;
+            if (isJobCompleted) return;
+            isJobCompleted = true;
+
+            completeProgressEngine();
+
+            if (data.upload_guide_url && btnDownloadGuide) {
+              btnDownloadGuide.href = data.upload_guide_url;
+              btnDownloadGuide.classList.remove("hidden");
+            }
+
+            setTimeout(() => {
+              progressSection.classList.add("hidden");
+              setupSection.classList.add("hidden");
+              renderClips(data.clips);
+              resultsSection.classList.remove("hidden");
+            }, 500);
+          } else if (data.status === "failed") {
+            clearInterval(pollInterval);
+            pollInterval = null;
+            stopProgressEngineError();
+            showToast(data.error || "Processing failed.", "fa-triangle-exclamation", true);
+            setupSection.classList.remove("opacity-50", "pointer-events-none");
+            btnStart.removeAttribute("disabled");
+          }
+        } catch (e) {
+          // If server error, do not throw
+        }
+      }, 1500);
+    }
+
+    // Render 9:16 Video Reel Cards with Upload Information
+    function renderClips(clips) {
+      clipsGrid.innerHTML = "";
+
+      if (!clips || clips.length === 0) {
+        clipsGrid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">No clips generated matching your rules.</div>`;
+        return;
+      }
+
+      clips.forEach(clip => {
+        const card = document.createElement("div");
+        card.className = "gradient-border flex flex-col";
+        const hookText = clip.text_overlay || clip.title || "";
+        const captionText = clip.caption || "";
+
+        card.innerHTML = `
+          <div class="gradient-border-inner p-3.5 flex flex-col gap-3 h-full justify-between">
+            <div class="flex flex-col gap-2.5">
+              <!-- 9:16 Vertical Video Player Container (Fills the whole screen) -->
+              <div class="relative rounded-xl overflow-hidden bg-black aspect-[9/16] w-full flex items-center justify-center border border-surface-border shadow-xl">
+                <video src="${clip.video_url}" controls preload="metadata" playsinline class="w-full h-full object-cover"></video>
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/75 backdrop-blur-sm text-[10px] text-brand-300 font-bold border border-white/10 pointer-events-none">
+                  Reel #${clip.id}
+                </span>
+                <span class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-black/75 backdrop-blur-sm text-[10px] text-slate-200 font-bold border border-white/10 pointer-events-none mono">
+                  ${clip.duration}s
+                </span>
+              </div>
+
+              <!-- Header & Timestamps -->
+              <div class="flex items-center justify-between gap-1 px-1">
+                <div class="truncate">
+                  <h3 class="font-bold text-white text-xs truncate" title="${escapeHtml(clip.title)}">${escapeHtml(clip.title)}</h3>
+                  <p class="text-[10px] text-slate-400 mono">⏱ ${formatTime(clip.start_time)} - ${formatTime(clip.end_time)}</p>
+                </div>
+              </div>
+
+              <!-- Hook Text Overlay Info -->
+              <div class="px-2 py-1.5 rounded-lg bg-surface-dark border border-surface-border/60 text-[11px] text-brand-300 font-medium truncate">
+                <i class="fa-solid fa-font text-sky-400 mr-1"></i> <span class="text-slate-400 font-normal">Hook:</span> "${escapeHtml(hookText)}"
+              </div>
+
+              <!-- Upload Information & Caption Drawer -->
+              <div class="p-2.5 rounded-xl bg-surface-darker/90 border border-surface-border/70 flex flex-col gap-1.5 text-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                    <i class="fa-solid fa-paper-plane text-brand-400"></i> Caption & Hashtags
+                  </span>
+                  <button type="button" class="btn-copy-caption text-[10px] text-brand-300 hover:text-white px-2 py-0.5 rounded bg-brand-500/20 hover:bg-brand-500/40 transition-colors flex items-center gap-1" data-caption="${escapeAttr(captionText)}">
+                    <i class="fa-regular fa-copy"></i> Copy
+                  </button>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed max-h-16 overflow-y-auto font-sans whitespace-pre-line pr-1">${escapeHtml(captionText)}</p>
+                
+                <div class="mt-1 pt-1.5 border-t border-surface-border/40 flex flex-col gap-1 text-[10px] text-slate-400">
+                  <div class="flex items-center justify-between">
+                    <span><strong class="text-slate-300">Best Time:</strong> ${escapeHtml(clip.best_post_time || '12-2 PM / 7-9 PM')}</span>
+                    <span class="truncate ml-2"><strong class="text-slate-300">Sound:</strong> ${escapeHtml(clip.song_suggestion || 'Original')}</span>
+                  </div>
+                  <p class="truncate"><strong class="text-slate-300">Strategy:</strong> ${escapeHtml(clip.upload_instructions || 'Post with original sound at 100%')}</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Footer: Download Button -->
+            <div class="pt-2 border-t border-surface-border/60">
+              <a href="${clip.video_url}" download="${clip.download_name}" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-brand-600 to-sky-500 hover:from-brand-500 hover:to-sky-400 text-white text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md">
+                <i class="fa-solid fa-download text-xs"></i>
+                <span>Download Reel #${clip.id}</span>
+              </a>
+            </div>
+          </div>
+        `;
+        clipsGrid.appendChild(card);
+      });
+
+      // Bind copy buttons safely without inline quote issues
+      clipsGrid.querySelectorAll(".btn-copy-caption").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const cap = btn.getAttribute("data-caption");
+          if (cap) {
+            navigator.clipboard.writeText(cap);
+            showToast("Caption & hashtags copied to clipboard!");
+          }
+        });
+      });
+    }
+
+    function escapeAttr(text) {
+      if (!text) return "";
+      return text.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function formatTime(secs) {
+      if (typeof secs !== "number") secs = parseFloat(secs) || 0;
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    btnNewVideo.addEventListener("click", () => {
+      isJobCompleted = false;
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
+      resultsSection.classList.add("hidden");
+      setupSection.classList.remove("hidden", "opacity-50", "pointer-events-none");
+      btnRemoveVideo.click();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
