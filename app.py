@@ -121,7 +121,7 @@ def run_job_pipeline(job_id: str, video_path: str, options: Dict[str, Any]):
 
         user_rules = str(options.get("user_rules") or "").strip()
         whisper_model = options.get("whisper_model", "base")
-        ollama_model = options.get("ollama_model", "deepseek-r1:8b")
+        ollama_model = options.get("ollama_model", "qwen2.5:7b")
         api_key = options.get("api_key", None)
         add_captions = options.get("add_captions", True)
 
@@ -282,55 +282,9 @@ async def get_system_status():
 
     models_list = [
         {
-            "id": "gemini-2.5-flash",
-            "name": "Google Gemini 2.5 Flash",
-            "badge": "Top Recommended • Multimodal",
-            "provider": "gemini",
-            "requires_key": not has_gemini_key,
-            "has_env_key": has_gemini_key,
-            "key_name": "Google Gemini API Key",
-            "key_url": "https://aistudio.google.com/app/apikey"
-        },
-        {
-            "id": "gemini-1.5-pro",
-            "name": "Google Gemini 1.5 Pro",
-            "badge": "Deep Reasoning • 2M Context",
-            "provider": "gemini",
-            "requires_key": not has_gemini_key,
-            "has_env_key": has_gemini_key,
-            "key_name": "Google Gemini API Key",
-            "key_url": "https://aistudio.google.com/app/apikey"
-        },
-        {
-            "id": "gpt-4o",
-            "name": "OpenAI GPT-4o",
-            "badge": "Frontier Intelligence",
-            "provider": "openai",
-            "requires_key": not has_openai_key,
-            "has_env_key": has_openai_key,
-            "key_name": "OpenAI API Key",
-            "key_url": "https://platform.openai.com/api-keys"
-        },
-        {
-            "id": "deepseek-r1:8b",
-            "name": "DeepSeek-R1 8B (Reasoning)",
-            "badge": "Local • Chain-of-Thought Reasoning",
-            "provider": "ollama",
-            "requires_key": False,
-            "has_env_key": False
-        },
-        {
             "id": "qwen2.5:7b",
             "name": "Qwen 2.5 7B",
-            "badge": "Local • Fast Structured",
-            "provider": "ollama",
-            "requires_key": False,
-            "has_env_key": False
-        },
-        {
-            "id": "llama3.1",
-            "name": "Llama 3.1 8B",
-            "badge": "Local • Meta AI",
+            "badge": "Top Recommended • Most Accurate",
             "provider": "ollama",
             "requires_key": False,
             "has_env_key": False
@@ -340,7 +294,7 @@ async def get_system_status():
     return {
         "ollama_connected": len(local_models) > 0,
         "models": models_list,
-        "recommended_model": "gemini-2.5-flash" if has_gemini_key else "deepseek-r1:8b",
+        "recommended_model": "qwen2.5:7b",
         "has_gemini_key": has_gemini_key,
         "has_openai_key": has_openai_key,
         "whisper_model": "base"

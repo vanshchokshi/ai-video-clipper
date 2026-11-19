@@ -708,7 +708,7 @@ def build_semantic_scenes(
 
 def analyze_transcript_with_ollama(
     transcript: str,
-    model_name: str = "deepseek-r1:8b",
+    model_name: str = "qwen2.5:7b",
     clip_count: int = 10,
     max_duration: int = 60,
     target_duration: int = 20,
